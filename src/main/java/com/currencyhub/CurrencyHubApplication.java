@@ -13,9 +13,19 @@ public class CurrencyHubApplication {
         Bem-vindo ao conversor de moedas!
         Versão do sistema: 1.0
         """);
+        
+        double valor = 0;
 
-        System.out.println("Digite o valor que deseja converter: ");
-        double valor = entrada.nextDouble();
+        while (valor <= 0) {
+            System.out.println("Digite o valor que deseja converter: ");
+            valor = entrada.nextDouble();
+
+            if (valor <= 0){
+                System.out.println("O valor informado deve ser maior que zero.");
+            } else {
+                System.out.println("Valor válido!");
+            }
+        }
 
         System.out.println("Valor informado: " + valor);
 
