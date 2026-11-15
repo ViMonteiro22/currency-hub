@@ -13,7 +13,9 @@ public class CurrencyHubApplication {
         Bem-vindo ao conversor de moedas!
         Versão do sistema: 1.0
         """);
-        
+
+        // SOLICITAR O VALOR DE CONVERSÃO
+
         double valor = 0;
 
         while (valor <= 0) {
@@ -29,10 +31,29 @@ public class CurrencyHubApplication {
 
         System.out.println("Valor informado: " + valor);
 
-        System.out.println("Digite a moeda de origem (BRL, USD, EUR): ");
-        String moedaDeOrigem = entrada.next();
+        // SOLICITAR A MOEDA DE ORIGEM
 
-        System.out.println(moedaDeOrigem);
+        String moedaDeOrigem = "";
+        boolean moedaValida = false;
+
+        while (!moedaValida) {
+            System.out.println("Digite a moeda de origem (BRL, USD, EUR):");
+            moedaDeOrigem = entrada.next();
+
+            if (moedaDeOrigem.equalsIgnoreCase("BRL") ||
+                    moedaDeOrigem.equalsIgnoreCase("USD") ||
+                    moedaDeOrigem.equalsIgnoreCase("EUR")) {
+
+                moedaValida = true;
+                System.out.println("Moeda válida!");
+
+            } else {
+                System.out.println("Moeda inválida! Tente novamente.");
+            }
+        }
+
+
+        // SOLICITAR A MOEDA DE DESTINO
 
         System.out.println("Digite a moeda de destino (BRL, USD, EUR): ");
         String moedaDeDestino = entrada.next();
