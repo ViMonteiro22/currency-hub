@@ -33,16 +33,16 @@ public class CurrencyHubApplication {
 
         // SOLICITAR A MOEDA DE ORIGEM
 
-        String moedaDeOrigem = "";
+        String moedaOrigem = "";
         boolean moedaValida = false;
 
         while (!moedaValida) {
             System.out.println("Digite a moeda de origem (BRL, USD, EUR):");
-            moedaDeOrigem = entrada.next();
+            moedaOrigem = entrada.next();
 
-            if (moedaDeOrigem.equalsIgnoreCase("BRL") ||
-                    moedaDeOrigem.equalsIgnoreCase("USD") ||
-                    moedaDeOrigem.equalsIgnoreCase("EUR")) {
+            if (moedaOrigem.equalsIgnoreCase("BRL") ||
+                    moedaOrigem.equalsIgnoreCase("USD") ||
+                    moedaOrigem.equalsIgnoreCase("EUR")) {
 
                 moedaValida = true;
                 System.out.println("Moeda válida!");
@@ -52,17 +52,32 @@ public class CurrencyHubApplication {
             }
         }
 
-
         // SOLICITAR A MOEDA DE DESTINO
 
-        System.out.println("Digite a moeda de destino (BRL, USD, EUR): ");
-        String moedaDeDestino = entrada.next();
+        String moedaDestino = "";
+        boolean moedaValidaDestino = false;
 
-        System.out.println(moedaDeDestino);
+        while (!moedaValidaDestino) {
+            System.out.println("Digite a moeda destino (BRL, USD, EUR):");
+            moedaDestino = entrada.next();
+
+            if (moedaDestino.equalsIgnoreCase("BRL") ||
+                    moedaDestino.equalsIgnoreCase("USD") ||
+                    moedaDestino.equalsIgnoreCase("EUR")) {
+
+                moedaValidaDestino = true;
+                System.out.println("Moeda válida!");
+
+            } else {
+                System.out.println("Moeda inválida! Tente novamente.");
+            }
+        }
+
+        // RESUMO FINAL
 
         System.out.println("===== RESUMO DA CONVERSÃO =====\n"
                 + "Valor: " + valor + "\n"
-                + "Origem: " + moedaDeOrigem + "\n"
-                + "Destino: " + moedaDeDestino);
+                + "Origem: " + moedaOrigem + "\n"
+                + "Destino: " + moedaDestino);
     }
 }
