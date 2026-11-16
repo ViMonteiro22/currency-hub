@@ -73,11 +73,48 @@ public class CurrencyHubApplication {
             }
         }
 
+        //COTAÇÃO DAS MOEDAS BRL E USD
+
+        double cotacaoDolar = 5.00;
+        double cotacaoEuro = 6.00;
+
+        double valorConvertido = 0;
+
+        if (moedaOrigem.equalsIgnoreCase("BRL") &&
+            moedaDestino.equalsIgnoreCase("USD")) {
+
+            valorConvertido = valor / cotacaoDolar;
+
+            System.out.println("Valor convertido: " + valorConvertido);
+
+        } else if (moedaOrigem.equalsIgnoreCase("USD") &&
+                   moedaDestino.equalsIgnoreCase("BRL")) {
+
+            valorConvertido = cotacaoDolar * valor;
+
+            System.out.println("Valor convertido: " + valorConvertido);
+
+        } else if (moedaOrigem.equalsIgnoreCase("EUR") &&
+                   moedaDestino.equalsIgnoreCase("BRL")) {
+
+            valorConvertido = valor * cotacaoEuro;
+
+            System.out.println("Valor convertido: " + valorConvertido);
+
+        } else if (moedaOrigem.equalsIgnoreCase("BRL") &&
+                moedaDestino.equalsIgnoreCase("EUR")) {
+
+            valorConvertido = valor / cotacaoEuro;
+
+            System.out.println("Valor convertido: " + valorConvertido);
+        }
+
         // RESUMO FINAL
 
         System.out.println("===== RESUMO DA CONVERSÃO =====\n"
-                + "Valor: " + valor + "\n"
+                + "Valor de entrada: " + valor + "\n"
                 + "Origem: " + moedaOrigem + "\n"
-                + "Destino: " + moedaDestino);
+                + "Destino: " + moedaDestino + "\n"
+                + "Valor final: " + valorConvertido);
     }
 }
